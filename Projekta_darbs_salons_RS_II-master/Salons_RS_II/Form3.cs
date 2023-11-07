@@ -146,5 +146,10 @@ namespace Salons_RS_II
                 }
             }
         }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -28,59 +28,46 @@ namespace Salons_RS_II
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Kaut kas ir aizgajis skibi greizi nepariezi");
+                MessageBox.Show("Kaut kas ir aizgajis skibi greizi nepariezi", ex.Message);
             }
             return sqlite_Connection;
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            SQLiteConnection sqlite_Connection;
-            sqlite_Connection = CreateConnection();
-
-            SQLiteCommand sqlite_Command;
-            sqlite_Command = sqlite_Connection.CreateCommand();
-            sqlite_Command.CommandText = "SELECT * FROM Klients";
-            DataTable sTable;
-            SQLiteDataAdapter sqlData = new SQLiteDataAdapter(sqlite_Command);
-            using (sTable = new DataTable())
-            {
-                sqlData.Fill(sTable);
-                dataGridView1.DataSource = sTable;
-            }
+            Paradit_datus("Klients",Klientu_izvade_grid);
         }
 
         private void pakalpojumi_Click(object sender, EventArgs e)
         {
-            SQLiteConnection sqlite_Connection;
-            sqlite_Connection = CreateConnection();
-
-            SQLiteCommand sqlite_Command;
-            sqlite_Command = sqlite_Connection.CreateCommand();
-            sqlite_Command.CommandText = "SELECT * FROM Preces";
-            DataTable sTable;
-            SQLiteDataAdapter sqlData = new SQLiteDataAdapter(sqlite_Command);
-            using (sTable = new DataTable())
-            {
-                sqlData.Fill(sTable);
-                izvadeslauks.DataSource = sTable;
-            }
+            Paradit_datus("Preces", Precu_izvade_grid);  
         }
 
         private void pakalpojumuizvade_Click(object sender, EventArgs e)
+        {
+            Paradit_datus("Procedura", Pakalpojumi_izvade_grid);
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Paradit_datus(string tabulas_nosaukums, DataGridView dataGridView)
         {
             SQLiteConnection sqlite_Connection;
             sqlite_Connection = CreateConnection();
 
             SQLiteCommand sqlite_Command;
             sqlite_Command = sqlite_Connection.CreateCommand();
-            sqlite_Command.CommandText = "SELECT * FROM Procedura";
+            sqlite_Command.CommandText = $"SELECT * FROM {tabulas_nosaukums}";
             DataTable sTable;
             SQLiteDataAdapter sqlData = new SQLiteDataAdapter(sqlite_Command);
             using (sTable = new DataTable())
             {
                 sqlData.Fill(sTable);
-                dataGridView2.DataSource = sTable;
+                dataGridView.DataSource = sTable;
             }
+
         }
     }
 }

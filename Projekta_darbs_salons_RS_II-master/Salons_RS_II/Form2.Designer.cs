@@ -28,46 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Klientu_izvade_grid = new System.Windows.Forms.DataGridView();
             this.klienti = new System.Windows.Forms.Button();
-            this.izvadeslauks = new System.Windows.Forms.DataGridView();
+            this.Precu_izvade_grid = new System.Windows.Forms.DataGridView();
             this.pakalpojumi = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.Pakalpojumi_izvade_grid = new System.Windows.Forms.DataGridView();
             this.pakalpojumuizvade = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.izvadeslauks)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Klientu_izvade_grid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Precu_izvade_grid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Pakalpojumi_izvade_grid)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // Klientu_izvade_grid
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(229, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(559, 131);
-            this.dataGridView1.TabIndex = 4;
+            this.Klientu_izvade_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Klientu_izvade_grid.Location = new System.Drawing.Point(229, 3);
+            this.Klientu_izvade_grid.Name = "Klientu_izvade_grid";
+            this.Klientu_izvade_grid.Size = new System.Drawing.Size(559, 131);
+            this.Klientu_izvade_grid.TabIndex = 4;
             // 
             // klienti
             // 
-            this.klienti.Location = new System.Drawing.Point(35, 56);
+            this.klienti.Location = new System.Drawing.Point(80, 51);
             this.klienti.Name = "klienti";
-            this.klienti.Size = new System.Drawing.Size(121, 23);
+            this.klienti.Size = new System.Drawing.Size(143, 23);
             this.klienti.TabIndex = 5;
             this.klienti.Text = "Klientu izvade";
             this.klienti.UseVisualStyleBackColor = true;
             this.klienti.Click += new System.EventHandler(this.button1_Click);
             // 
-            // izvadeslauks
+            // Precu_izvade_grid
             // 
-            this.izvadeslauks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.izvadeslauks.Location = new System.Drawing.Point(229, 140);
-            this.izvadeslauks.Name = "izvadeslauks";
-            this.izvadeslauks.Size = new System.Drawing.Size(559, 150);
-            this.izvadeslauks.TabIndex = 6;
+            this.Precu_izvade_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Precu_izvade_grid.Location = new System.Drawing.Point(229, 140);
+            this.Precu_izvade_grid.Name = "Precu_izvade_grid";
+            this.Precu_izvade_grid.Size = new System.Drawing.Size(559, 150);
+            this.Precu_izvade_grid.TabIndex = 6;
             // 
             // pakalpojumi
             // 
-            this.pakalpojumi.Location = new System.Drawing.Point(13, 226);
+            this.pakalpojumi.Location = new System.Drawing.Point(80, 202);
             this.pakalpojumi.Name = "pakalpojumi";
             this.pakalpojumi.Size = new System.Drawing.Size(143, 23);
             this.pakalpojumi.TabIndex = 7;
@@ -75,19 +75,19 @@
             this.pakalpojumi.UseVisualStyleBackColor = true;
             this.pakalpojumi.Click += new System.EventHandler(this.pakalpojumi_Click);
             // 
-            // dataGridView2
+            // Pakalpojumi_izvade_grid
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(229, 296);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(559, 150);
-            this.dataGridView2.TabIndex = 8;
+            this.Pakalpojumi_izvade_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Pakalpojumi_izvade_grid.Location = new System.Drawing.Point(229, 296);
+            this.Pakalpojumi_izvade_grid.Name = "Pakalpojumi_izvade_grid";
+            this.Pakalpojumi_izvade_grid.Size = new System.Drawing.Size(559, 150);
+            this.Pakalpojumi_izvade_grid.TabIndex = 8;
             // 
             // pakalpojumuizvade
             // 
-            this.pakalpojumuizvade.Location = new System.Drawing.Point(69, 333);
+            this.pakalpojumuizvade.Location = new System.Drawing.Point(80, 362);
             this.pakalpojumuizvade.Name = "pakalpojumuizvade";
-            this.pakalpojumuizvade.Size = new System.Drawing.Size(75, 23);
+            this.pakalpojumuizvade.Size = new System.Drawing.Size(143, 23);
             this.pakalpojumuizvade.TabIndex = 9;
             this.pakalpojumuizvade.Text = "Pakalpojumu izvade";
             this.pakalpojumuizvade.UseVisualStyleBackColor = true;
@@ -99,27 +99,28 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.pakalpojumuizvade);
-            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.Pakalpojumi_izvade_grid);
             this.Controls.Add(this.pakalpojumi);
-            this.Controls.Add(this.izvadeslauks);
+            this.Controls.Add(this.Precu_izvade_grid);
             this.Controls.Add(this.klienti);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.Klientu_izvade_grid);
             this.Name = "Form2";
             this.Text = "Datu apskate";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.izvadeslauks)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.Load += new System.EventHandler(this.Form2_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.Klientu_izvade_grid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Precu_izvade_grid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Pakalpojumi_izvade_grid)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView Klientu_izvade_grid;
         private System.Windows.Forms.Button klienti;
-        private System.Windows.Forms.DataGridView izvadeslauks;
+        private System.Windows.Forms.DataGridView Precu_izvade_grid;
         private System.Windows.Forms.Button pakalpojumi;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView Pakalpojumi_izvade_grid;
         private System.Windows.Forms.Button pakalpojumuizvade;
     }
 }
