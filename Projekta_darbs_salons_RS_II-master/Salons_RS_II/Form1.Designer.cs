@@ -55,7 +55,7 @@
             this.Datu_ievade.Name = "Datu_ievade";
             this.Datu_ievade.Size = new System.Drawing.Size(156, 23);
             this.Datu_ievade.TabIndex = 0;
-            this.Datu_ievade.Text = "Main Menu";
+            this.Datu_ievade.Text = "Datu ievade";
             this.Datu_ievade.UseVisualStyleBackColor = true;
             this.Datu_ievade.Click += new System.EventHandler(this.Datu_ievade_Click);
             // 
@@ -88,7 +88,7 @@
             this.Controls.Add(this.Dati_no_DB);
             this.Controls.Add(this.Datu_ievade);
             this.Name = "Form1";
-            this.Text = "Datu ievade";
+            this.Text = "Main Menu";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.ResumeLayout(false);

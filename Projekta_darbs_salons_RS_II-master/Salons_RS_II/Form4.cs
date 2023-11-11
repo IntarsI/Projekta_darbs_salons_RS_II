@@ -34,61 +34,29 @@ namespace Salons_RS_II
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Kaut kas ir aizgajis skibi greizi nepariezi");
+                MessageBox.Show("Kaut kas ir aizgajis skibi greizi nepariezi" + ex.Message);
             }
             return sqlite_Connection;
         }
 
-
-        private void preces_registresana_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrWhiteSpace(precesveids.Text) && !string.IsNullOrWhiteSpace(precesnosaukums.Text) && !string.IsNullOrWhiteSpace(precestilpums.Text) && !string.IsNullOrWhiteSpace(precescena.Text))
-            {
-                SQLiteConnection sqlite_conn;
-                sqlite_conn = CreateConnection();
-
-                using (SQLiteCommand sqlite_cmd = sqlite_conn.CreateCommand())
-                {
-                    // Use parameterized query to avoid SQL injection
-                    sqlite_cmd.CommandText = "INSERT INTO Preces (veids, nosaukums, tilpums, cena) VALUES (@veids, @nosaukums, @tilpums, @cena)";
-                    sqlite_cmd.Parameters.AddWithValue("@veids", precesveids.Text);
-                    sqlite_cmd.Parameters.AddWithValue("@nosaukums", precesnosaukums.Text);
-                    sqlite_cmd.Parameters.AddWithValue("@tilpums", precestilpums.Text);
-                    sqlite_cmd.Parameters.AddWithValue("@cena", precescena.Text);
-
-                    try
-                    {
-                        sqlite_cmd.ExecuteNonQuery();
-                        MessageBox.Show("Dati ievaditi veiksmigi.");
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error: " + ex.Message);
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Aizpildiet visus laukus.");
-            }
-        }
-
-        private void klienta_registresana_Click(object sender, EventArgs e)
+        private void klienta_registresana_Click_1(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(klientaepasts.Text) && !string.IsNullOrWhiteSpace(klientanumurs.Text) && !string.IsNullOrWhiteSpace(klientauzvards.Text) && !string.IsNullOrWhiteSpace(klientavards.Text))
             {
+                string laiks = Laika_izvele.Value.ToString("HH:mm");
                 SQLiteConnection sqlite_conn;
                 sqlite_conn = CreateConnection();
-
                 using (SQLiteCommand sqlite_cmd = sqlite_conn.CreateCommand())
                 {
                     // Use parameterized query to avoid SQL injection
-                    sqlite_cmd.CommandText = "INSERT INTO Klients (vards, uzvards, epasts, telefona_numurs, proceduras_ID) VALUES (@vards, @uzvards, @epasts, @telefons, @procedura)";
+                    sqlite_cmd.CommandText = "INSERT INTO Klients (vards, uzvards, epasts, telefona_numurs, proceduras_ID,Laiks) VALUES (@vards, @uzvards, @epasts, @telefons, @procedura, @Laiks)";
                     sqlite_cmd.Parameters.AddWithValue("@vards", klientavards.Text);
                     sqlite_cmd.Parameters.AddWithValue("@uzvards", klientauzvards.Text);
                     sqlite_cmd.Parameters.AddWithValue("@epasts", klientaepasts.Text);
                     sqlite_cmd.Parameters.AddWithValue("@telefons", klientanumurs.Text);
                     sqlite_cmd.Parameters.AddWithValue("@procedura", klientsprocedura.Text);
+                    sqlite_cmd.Parameters.AddWithValue("@Laiks", laiks);
+
                     try
                     {
                         sqlite_cmd.ExecuteNonQuery();
@@ -100,13 +68,9 @@ namespace Salons_RS_II
                     }
                 }
             }
-            else
-            {
-                MessageBox.Show("Aizpildiet visus laukus.");
-            }
         }
 
-        private void pierakstisana_pakalpojums_Click(object sender, EventArgs e)
+        private void pierakstisana_pakalpojums_Click_1(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(pakalpojums_cena.Text) && !string.IsNullOrWhiteSpace(pakalpojums_nosaukums.Text) && !string.IsNullOrWhiteSpace(pakalpojums_pecesid.Text) && !string.IsNullOrWhiteSpace(pakalpojums_pieejamiba.Text))
             {
@@ -138,6 +102,38 @@ namespace Salons_RS_II
             }
         }
 
+        private void preces_registresana_Click_1(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(precesveids.Text) && !string.IsNullOrWhiteSpace(precesnosaukums.Text) && !string.IsNullOrWhiteSpace(precestilpums.Text) && !string.IsNullOrWhiteSpace(precescena.Text))
+            {
+                SQLiteConnection sqlite_conn;
+                sqlite_conn = CreateConnection();
+
+                using (SQLiteCommand sqlite_cmd = sqlite_conn.CreateCommand())
+                {
+                    // Use parameterized query to avoid SQL injection
+                    sqlite_cmd.CommandText = "INSERT INTO Preces (veids, nosaukums, tilpums, cena) VALUES (@veids, @nosaukums, @tilpums, @cena)";
+                    sqlite_cmd.Parameters.AddWithValue("@veids", precesveids.Text);
+                    sqlite_cmd.Parameters.AddWithValue("@nosaukums", precesnosaukums.Text);
+                    sqlite_cmd.Parameters.AddWithValue("@tilpums", precestilpums.Text);
+                    sqlite_cmd.Parameters.AddWithValue("@cena", precescena.Text);
+
+                    try
+                    {
+                        sqlite_cmd.ExecuteNonQuery();
+                        MessageBox.Show("Dati ievaditi veiksmigi.");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Aizpildiet visus laukus.");
+            }
+        }
     }
 }
 
