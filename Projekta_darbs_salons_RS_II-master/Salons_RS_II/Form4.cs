@@ -2,12 +2,17 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
+using System.Data.Entity;
 using System.Data.SQLite;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Lifetime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace Salons_RS_II
 {
@@ -46,20 +51,35 @@ namespace Salons_RS_II
                 string laiks = Laika_izvele.Value.ToString("HH:mm");
                 SQLiteConnection sqlite_conn;
                 sqlite_conn = CreateConnection();
-                using (SQLiteCommand sqlite_cmd = sqlite_conn.CreateCommand())
+
+                using (SQLiteCommand checkCmd = new SQLiteCommand("SELECT laiks FROM Klients WHERE laiks = @laiks", sqlite_conn))
                 {
-                    // Use parameterized query to avoid SQL injection
-                    sqlite_cmd.CommandText = "INSERT INTO Klients (vards, uzvards, epasts, telefona_numurs, proceduras_ID,Laiks) VALUES (@vards, @uzvards, @epasts, @telefons, @procedura, @Laiks)";
-                    sqlite_cmd.Parameters.AddWithValue("@vards", klientavards.Text);
-                    sqlite_cmd.Parameters.AddWithValue("@uzvards", klientauzvards.Text);
-                    sqlite_cmd.Parameters.AddWithValue("@epasts", klientaepasts.Text);
-                    sqlite_cmd.Parameters.AddWithValue("@telefons", klientanumurs.Text);
-                    sqlite_cmd.Parameters.AddWithValue("@procedura", klientsprocedura.Text);
-                    sqlite_cmd.Parameters.AddWithValue("@Laiks", laiks);
+                    checkCmd.Parameters.AddWithValue("@laiks", laiks);
+
+                    sqlite_conn.Open();
+
+                    using (SQLiteDataReader reader = checkCmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            MessageBox.Show("Laiks ir aizņemts!");
+                            return;
+                        }
+                    }
+                }
+
+                using (SQLiteCommand insertCmd = new SQLiteCommand("INSERT INTO Klients (vards, uzvards, epasts, telefona_numurs, proceduras_ID, Laiks) VALUES (@vards, @uzvards, @epasts, @telefons, @procedura, @Laiks)", sqlite_conn))
+                {
+                    insertCmd.Parameters.AddWithValue("@vards", klientavards.Text);
+                    insertCmd.Parameters.AddWithValue("@uzvards", klientauzvards.Text);
+                    insertCmd.Parameters.AddWithValue("@epasts", klientaepasts.Text);
+                    insertCmd.Parameters.AddWithValue("@telefons", klientanumurs.Text);
+                    insertCmd.Parameters.AddWithValue("@procedura", klientsprocedura.Text);
+                    insertCmd.Parameters.AddWithValue("@Laiks", laiks);
 
                     try
                     {
-                        sqlite_cmd.ExecuteNonQuery();
+                        insertCmd.ExecuteNonQuery();
                         MessageBox.Show("Dati ievaditi veiksmigi.");
                     }
                     catch (Exception ex)
@@ -69,6 +89,7 @@ namespace Salons_RS_II
                 }
             }
         }
+
 
         private void pierakstisana_pakalpojums_Click_1(object sender, EventArgs e)
         {
