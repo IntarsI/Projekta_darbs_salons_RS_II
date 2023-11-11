@@ -70,4 +70,28 @@ namespace Salons_RS_II
 
         }
     }
+
+    public class DatabaseManager
+    {
+        private SQLiteConnection sqliteConnection;
+
+        public string databasePath = "Salons_datubaze(2).db";
+
+        public DatabaseManager(string databasePath)
+        {
+            sqliteConnection = new SQLiteConnection($"Data Source={databasePath};Version=3;New=True;Compress=True;");
+        }
+
+        public void OpenConnection()
+        {
+            try
+            {
+                sqliteConnection.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error opening the database connection: " + ex.Message);
+            }
+        }
+    }
 }

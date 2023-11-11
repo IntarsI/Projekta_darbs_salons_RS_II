@@ -60,6 +60,7 @@
             this.klientauzvards = new System.Windows.Forms.TextBox();
             this.klientaepasts = new System.Windows.Forms.TextBox();
             this.klientavards = new System.Windows.Forms.TextBox();
+            this.Laika_izvele = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // pierakstisana_pakalpojums
@@ -70,6 +71,7 @@
             this.pierakstisana_pakalpojums.TabIndex = 72;
             this.pierakstisana_pakalpojums.Text = "Reģistrēt pakalpojumu";
             this.pierakstisana_pakalpojums.UseVisualStyleBackColor = true;
+            this.pierakstisana_pakalpojums.Click += new System.EventHandler(this.pierakstisana_pakalpojums_Click_1);
             // 
             // label15
             // 
@@ -240,6 +242,7 @@
             this.preces_registresana.TabIndex = 52;
             this.preces_registresana.Text = "Reģistrēt preci";
             this.preces_registresana.UseVisualStyleBackColor = true;
+            this.preces_registresana.Click += new System.EventHandler(this.preces_registresana_Click_1);
             // 
             // label2
             // 
@@ -280,12 +283,13 @@
             // 
             // klienta_registresana
             // 
-            this.klienta_registresana.Location = new System.Drawing.Point(496, 286);
+            this.klienta_registresana.Location = new System.Drawing.Point(496, 312);
             this.klienta_registresana.Name = "klienta_registresana";
             this.klienta_registresana.Size = new System.Drawing.Size(109, 23);
             this.klienta_registresana.TabIndex = 46;
             this.klienta_registresana.Text = "Pierakstīt klientu";
             this.klienta_registresana.UseVisualStyleBackColor = true;
+            this.klienta_registresana.Click += new System.EventHandler(this.klienta_registresana_Click_1);
             // 
             // label1
             // 
@@ -324,11 +328,20 @@
             this.klientavards.Size = new System.Drawing.Size(100, 20);
             this.klientavards.TabIndex = 41;
             // 
+            // Laika_izvele
+            // 
+            this.Laika_izvele.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.Laika_izvele.Location = new System.Drawing.Point(496, 286);
+            this.Laika_izvele.Name = "Laika_izvele";
+            this.Laika_izvele.Size = new System.Drawing.Size(200, 20);
+            this.Laika_izvele.TabIndex = 73;
+            // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Laika_izvele);
             this.Controls.Add(this.pierakstisana_pakalpojums);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
@@ -403,5 +416,6 @@
         private System.Windows.Forms.TextBox klientauzvards;
         private System.Windows.Forms.TextBox klientaepasts;
         private System.Windows.Forms.TextBox klientavards;
+        private System.Windows.Forms.DateTimePicker Laika_izvele;
     }
 }
