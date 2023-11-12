@@ -27,7 +27,7 @@ namespace Salons_RS_II
         {
 
         }
-
+        //konektētas ar datubāzi
         static SQLiteConnection CreateConnection()
         {
             SQLiteConnection sqlite_Connection;
@@ -59,26 +59,22 @@ namespace Salons_RS_II
                         checkCmd.Parameters.AddWithValue("@procedura", klientsprocedura.Text);
 
                         using (SQLiteDataReader reader = checkCmd.ExecuteReader())
-                        {
+                        {//pārbauda vai laiks ir pieejams
                             if (reader.Read())
                             {
                                 string existingLaiks = reader["laiks"].ToString();
                                 string existingProceduraID = reader["proceduras_ID"].ToString();
 
-                                if (existingLaiks == laiks)
+                                if (existingProceduraID == klientsprocedura.Text && existingLaiks == laiks)
                                 {
-                                    MessageBox.Show("Laiks ir aizņemts!");
-                                }
-                                else if (existingProceduraID == klientsprocedura.Text)
-                                {
-                                    MessageBox.Show("Procedūra ar šādu ID jau ir reģistrēta!");
+                                    MessageBox.Show("Procedūra šajā laikā aizņemta!");
                                 }
 
                                 return; 
                             }
                         }
                     }
-
+                    //ievada visus datus datubāzē
                     using (SQLiteCommand insertCmd = new SQLiteCommand("INSERT INTO Klients (vards, uzvards, epasts, telefona_numurs, proceduras_ID, Laiks) VALUES (@vards, @uzvards, @epasts, @telefons, @procedura, @Laiks)", sqlite_conn))
                     {
                         insertCmd.Parameters.AddWithValue("@vards", klientavards.Text);
@@ -109,10 +105,9 @@ namespace Salons_RS_II
             {
                 SQLiteConnection sqlite_conn;
                 sqlite_conn = CreateConnection();
-
+                //ievada visus jaunās procedūras datus datubāzē
                 using (SQLiteCommand sqlite_cmd = sqlite_conn.CreateCommand())
                 {
-                    // Use parameterized query to avoid SQL injection
                     sqlite_cmd.CommandText = "INSERT INTO Procedura (Preces_ID, Nosaukums, Cena, Pieejamiba) VALUES (@precesid, @nosaukums, @cena, @pieejamiba)";
                     sqlite_cmd.Parameters.AddWithValue("@precesid", pakalpojums_pecesid.Text);
                     sqlite_cmd.Parameters.AddWithValue("@nosaukums", pakalpojums_nosaukums.Text);
@@ -121,7 +116,7 @@ namespace Salons_RS_II
                     try
                     {
                         sqlite_cmd.ExecuteNonQuery();
-                        MessageBox.Show("Data inserted successfully.");
+                        MessageBox.Show("Dati ievadīti veiksmīgi");
                     }
                     catch (Exception ex)
                     {
@@ -131,7 +126,7 @@ namespace Salons_RS_II
             }
             else
             {
-                MessageBox.Show("Please fill in all the fields.");
+                MessageBox.Show("Aizpildiet visus laukus.");
             }
         }
 
@@ -141,10 +136,9 @@ namespace Salons_RS_II
             {
                 SQLiteConnection sqlite_conn;
                 sqlite_conn = CreateConnection();
-
+                //ievada jaunās preces datus datubāzē
                 using (SQLiteCommand sqlite_cmd = sqlite_conn.CreateCommand())
                 {
-                    // Use parameterized query to avoid SQL injection
                     sqlite_cmd.CommandText = "INSERT INTO Preces (veids, nosaukums, tilpums, cena) VALUES (@veids, @nosaukums, @tilpums, @cena)";
                     sqlite_cmd.Parameters.AddWithValue("@veids", precesveids.Text);
                     sqlite_cmd.Parameters.AddWithValue("@nosaukums", precesnosaukums.Text);
@@ -166,6 +160,11 @@ namespace Salons_RS_II
             {
                 MessageBox.Show("Aizpildiet visus laukus.");
             }
+        }
+
+        private void klientsprocedura_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

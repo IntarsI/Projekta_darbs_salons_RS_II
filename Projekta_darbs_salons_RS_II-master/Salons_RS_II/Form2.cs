@@ -17,6 +17,7 @@ namespace Salons_RS_II
         {
             InitializeComponent();
         }
+        //konekcijas izveidošanas funkcija
         static SQLiteConnection CreateConnection()
         {
             SQLiteConnection sqlite_Connection;
@@ -28,20 +29,20 @@ namespace Salons_RS_II
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Kaut kas ir aizgajis skibi greizi nepariezi", ex.Message);
+                MessageBox.Show(ex.Message);
             }
             return sqlite_Connection;
-        }
+        }        //parāda datus
         private void button1_Click(object sender, EventArgs e)
         {
             Paradit_datus("Klients",Klientu_izvade_grid);
         }
-
+        //parāda datus
         private void pakalpojumi_Click(object sender, EventArgs e)
         {
             Paradit_datus("Preces", Precu_izvade_grid);  
         }
-
+        //parāda datus
         private void pakalpojumuizvade_Click(object sender, EventArgs e)
         {
             Paradit_datus("Procedura", Pakalpojumi_izvade_grid);
@@ -51,7 +52,7 @@ namespace Salons_RS_II
         {
 
         }
-
+        //izlasa datus no attiecīgajām tabulām
         private void Paradit_datus(string tabulas_nosaukums, DataGridView dataGridView)
         {
             SQLiteConnection sqlite_Connection;
@@ -70,7 +71,7 @@ namespace Salons_RS_II
 
         }
     }
-
+    //pārbauda datubāzes konekciju
     public class DatabaseManager
     {
         private SQLiteConnection sqliteConnection;
@@ -90,7 +91,7 @@ namespace Salons_RS_II
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error opening the database connection: " + ex.Message);
+                MessageBox.Show("Parādījās kļūda ar datubāzi: " + ex.Message);
             }
         }
     }

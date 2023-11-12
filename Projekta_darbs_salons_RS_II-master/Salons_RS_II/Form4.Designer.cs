@@ -61,22 +61,26 @@
             this.klientaepasts = new System.Windows.Forms.TextBox();
             this.klientavards = new System.Windows.Forms.TextBox();
             this.Laika_izvele = new System.Windows.Forms.DateTimePicker();
+            this.label16 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // pierakstisana_pakalpojums
             // 
-            this.pierakstisana_pakalpojums.Location = new System.Drawing.Point(297, 267);
+            this.pierakstisana_pakalpojums.BackColor = System.Drawing.Color.Teal;
+            this.pierakstisana_pakalpojums.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.pierakstisana_pakalpojums.ForeColor = System.Drawing.Color.White;
+            this.pierakstisana_pakalpojums.Location = new System.Drawing.Point(253, 262);
             this.pierakstisana_pakalpojums.Name = "pierakstisana_pakalpojums";
-            this.pierakstisana_pakalpojums.Size = new System.Drawing.Size(125, 23);
+            this.pierakstisana_pakalpojums.Size = new System.Drawing.Size(175, 52);
             this.pierakstisana_pakalpojums.TabIndex = 72;
             this.pierakstisana_pakalpojums.Text = "Reģistrēt pakalpojumu";
-            this.pierakstisana_pakalpojums.UseVisualStyleBackColor = true;
+            this.pierakstisana_pakalpojums.UseVisualStyleBackColor = false;
             this.pierakstisana_pakalpojums.Click += new System.EventHandler(this.pierakstisana_pakalpojums_Click_1);
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(403, 163);
+            this.label15.Location = new System.Drawing.Point(232, 166);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(59, 13);
             this.label15.TabIndex = 71;
@@ -85,7 +89,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(403, 189);
+            this.label14.Location = new System.Drawing.Point(228, 186);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(63, 13);
             this.label14.TabIndex = 70;
@@ -94,7 +98,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(403, 215);
+            this.label13.Location = new System.Drawing.Point(259, 215);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(32, 13);
             this.label13.TabIndex = 69;
@@ -103,7 +107,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(403, 237);
+            this.label11.Location = new System.Drawing.Point(240, 234);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(51, 13);
             this.label11.TabIndex = 68;
@@ -112,9 +116,10 @@
             // Pakalpojums
             // 
             this.Pakalpojums.AutoSize = true;
-            this.Pakalpojums.Location = new System.Drawing.Point(294, 142);
+            this.Pakalpojums.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.Pakalpojums.Location = new System.Drawing.Point(265, 126);
             this.Pakalpojums.Name = "Pakalpojums";
-            this.Pakalpojums.Size = new System.Drawing.Size(67, 13);
+            this.Pakalpojums.Size = new System.Drawing.Size(163, 29);
             this.Pakalpojums.TabIndex = 67;
             this.Pakalpojums.Text = "Pakalpojums";
             // 
@@ -141,7 +146,7 @@
             // 
             // pakalpojums_pieejamiba
             // 
-            this.pakalpojums_pieejamiba.Location = new System.Drawing.Point(297, 160);
+            this.pakalpojums_pieejamiba.Location = new System.Drawing.Point(297, 163);
             this.pakalpojums_pieejamiba.Name = "pakalpojums_pieejamiba";
             this.pakalpojums_pieejamiba.Size = new System.Drawing.Size(100, 20);
             this.pakalpojums_pieejamiba.TabIndex = 63;
@@ -149,7 +154,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(602, 215);
+            this.label12.Location = new System.Drawing.Point(480, 215);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(78, 13);
             this.label12.TabIndex = 62;
@@ -157,15 +162,16 @@
             // 
             // klientsprocedura
             // 
-            this.klientsprocedura.Location = new System.Drawing.Point(496, 208);
+            this.klientsprocedura.Location = new System.Drawing.Point(564, 208);
             this.klientsprocedura.Name = "klientsprocedura";
             this.klientsprocedura.Size = new System.Drawing.Size(100, 20);
             this.klientsprocedura.TabIndex = 61;
+            this.klientsprocedura.TextChanged += new System.EventHandler(this.klientsprocedura_TextChanged);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(602, 267);
+            this.label7.Location = new System.Drawing.Point(472, 267);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(86, 13);
             this.label7.TabIndex = 60;
@@ -174,7 +180,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(602, 241);
+            this.label8.Location = new System.Drawing.Point(516, 237);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(42, 13);
             this.label8.TabIndex = 59;
@@ -183,7 +189,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(602, 193);
+            this.label9.Location = new System.Drawing.Point(512, 193);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(46, 13);
             this.label9.TabIndex = 58;
@@ -192,7 +198,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(602, 163);
+            this.label10.Location = new System.Drawing.Point(524, 170);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(34, 13);
             this.label10.TabIndex = 57;
@@ -201,7 +207,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(221, 237);
+            this.label6.Location = new System.Drawing.Point(77, 237);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(32, 13);
             this.label6.TabIndex = 56;
@@ -210,7 +216,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(221, 215);
+            this.label5.Location = new System.Drawing.Point(66, 211);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(43, 13);
             this.label5.TabIndex = 55;
@@ -219,7 +225,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(221, 189);
+            this.label4.Location = new System.Drawing.Point(46, 189);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(63, 13);
             this.label4.TabIndex = 54;
@@ -228,7 +234,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(221, 166);
+            this.label3.Location = new System.Drawing.Point(76, 167);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(33, 13);
             this.label3.TabIndex = 53;
@@ -236,20 +242,24 @@
             // 
             // preces_registresana
             // 
-            this.preces_registresana.Location = new System.Drawing.Point(115, 262);
+            this.preces_registresana.BackColor = System.Drawing.Color.Teal;
+            this.preces_registresana.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.preces_registresana.ForeColor = System.Drawing.Color.White;
+            this.preces_registresana.Location = new System.Drawing.Point(49, 262);
             this.preces_registresana.Name = "preces_registresana";
-            this.preces_registresana.Size = new System.Drawing.Size(109, 23);
+            this.preces_registresana.Size = new System.Drawing.Size(175, 52);
             this.preces_registresana.TabIndex = 52;
             this.preces_registresana.Text = "Reģistrēt preci";
-            this.preces_registresana.UseVisualStyleBackColor = true;
+            this.preces_registresana.UseVisualStyleBackColor = false;
             this.preces_registresana.Click += new System.EventHandler(this.preces_registresana_Click_1);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(112, 142);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.label2.Location = new System.Drawing.Point(123, 126);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(82, 29);
             this.label2.TabIndex = 51;
             this.label2.Text = "Prece";
             // 
@@ -283,64 +293,81 @@
             // 
             // klienta_registresana
             // 
-            this.klienta_registresana.Location = new System.Drawing.Point(496, 312);
+            this.klienta_registresana.BackColor = System.Drawing.Color.Teal;
+            this.klienta_registresana.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.klienta_registresana.ForeColor = System.Drawing.Color.White;
+            this.klienta_registresana.Location = new System.Drawing.Point(527, 321);
             this.klienta_registresana.Name = "klienta_registresana";
-            this.klienta_registresana.Size = new System.Drawing.Size(109, 23);
+            this.klienta_registresana.Size = new System.Drawing.Size(175, 54);
             this.klienta_registresana.TabIndex = 46;
             this.klienta_registresana.Text = "Pierakstīt klientu";
-            this.klienta_registresana.UseVisualStyleBackColor = true;
+            this.klienta_registresana.UseVisualStyleBackColor = false;
             this.klienta_registresana.Click += new System.EventHandler(this.klienta_registresana_Click_1);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(493, 142);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.label1.Location = new System.Drawing.Point(571, 131);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
+            this.label1.Size = new System.Drawing.Size(93, 29);
             this.label1.TabIndex = 45;
             this.label1.Text = "Klients";
             // 
             // klientanumurs
             // 
-            this.klientanumurs.Location = new System.Drawing.Point(496, 260);
+            this.klientanumurs.Location = new System.Drawing.Point(564, 260);
             this.klientanumurs.Name = "klientanumurs";
             this.klientanumurs.Size = new System.Drawing.Size(100, 20);
             this.klientanumurs.TabIndex = 44;
             // 
             // klientauzvards
             // 
-            this.klientauzvards.Location = new System.Drawing.Point(496, 186);
+            this.klientauzvards.Location = new System.Drawing.Point(564, 186);
             this.klientauzvards.Name = "klientauzvards";
             this.klientauzvards.Size = new System.Drawing.Size(100, 20);
             this.klientauzvards.TabIndex = 43;
             // 
             // klientaepasts
             // 
-            this.klientaepasts.Location = new System.Drawing.Point(496, 234);
+            this.klientaepasts.Location = new System.Drawing.Point(564, 234);
             this.klientaepasts.Name = "klientaepasts";
             this.klientaepasts.Size = new System.Drawing.Size(100, 20);
             this.klientaepasts.TabIndex = 42;
             // 
             // klientavards
             // 
-            this.klientavards.Location = new System.Drawing.Point(496, 163);
+            this.klientavards.Location = new System.Drawing.Point(564, 163);
             this.klientavards.Name = "klientavards";
             this.klientavards.Size = new System.Drawing.Size(100, 20);
             this.klientavards.TabIndex = 41;
             // 
             // Laika_izvele
             // 
-            this.Laika_izvele.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.Laika_izvele.Location = new System.Drawing.Point(496, 286);
+            this.Laika_izvele.CustomFormat = "HH:mm";
+            this.Laika_izvele.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.Laika_izvele.Location = new System.Drawing.Point(512, 286);
             this.Laika_izvele.Name = "Laika_izvele";
             this.Laika_izvele.Size = new System.Drawing.Size(200, 20);
             this.Laika_izvele.TabIndex = 73;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.label16.Location = new System.Drawing.Point(195, 20);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(326, 42);
+            this.label16.TabIndex = 74;
+            this.label16.Text = "PIERAKSTĪŠANA";
             // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.LightCyan;
+            this.ClientSize = new System.Drawing.Size(735, 383);
+            this.Controls.Add(this.label16);
             this.Controls.Add(this.Laika_izvele);
             this.Controls.Add(this.pierakstisana_pakalpojums);
             this.Controls.Add(this.label15);
@@ -417,5 +444,6 @@
         private System.Windows.Forms.TextBox klientaepasts;
         private System.Windows.Forms.TextBox klientavards;
         private System.Windows.Forms.DateTimePicker Laika_izvele;
+        private System.Windows.Forms.Label label16;
     }
 }
