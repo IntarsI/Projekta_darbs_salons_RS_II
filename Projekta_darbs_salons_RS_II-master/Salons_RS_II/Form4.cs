@@ -46,45 +46,57 @@ namespace Salons_RS_II
 
         private void klienta_registresana_Click_1(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(klientaepasts.Text) && !string.IsNullOrWhiteSpace(klientanumurs.Text) && !string.IsNullOrWhiteSpace(klientauzvards.Text) && !string.IsNullOrWhiteSpace(klientavards.Text))
             {
-                string laiks = Laika_izvele.Value.ToString("HH:mm");
-                SQLiteConnection sqlite_conn;
-                sqlite_conn = CreateConnection();
-
-                using (SQLiteCommand checkCmd = new SQLiteCommand("SELECT laiks FROM Klients WHERE laiks = @laiks", sqlite_conn))
+                if (!string.IsNullOrWhiteSpace(klientaepasts.Text) && !string.IsNullOrWhiteSpace(klientanumurs.Text) && !string.IsNullOrWhiteSpace(klientauzvards.Text) && !string.IsNullOrWhiteSpace(klientavards.Text))
                 {
-                    checkCmd.Parameters.AddWithValue("@laiks", laiks);
+                    string laiks = Laika_izvele.Value.ToString("HH:mm");
+                    SQLiteConnection sqlite_conn;
+                    sqlite_conn = CreateConnection();
 
-                    sqlite_conn.Open();
-
-                    using (SQLiteDataReader reader = checkCmd.ExecuteReader())
+                    using (SQLiteCommand checkCmd = new SQLiteCommand("SELECT laiks, proceduras_ID FROM Klients WHERE laiks = @laiks OR proceduras_ID = @procedura", sqlite_conn))
                     {
-                        if (reader.Read())
+                        checkCmd.Parameters.AddWithValue("@laiks", laiks);
+                        checkCmd.Parameters.AddWithValue("@procedura", klientsprocedura.Text);
+
+                        using (SQLiteDataReader reader = checkCmd.ExecuteReader())
                         {
-                            MessageBox.Show("Laiks ir aizņemts!");
-                            return;
+                            if (reader.Read())
+                            {
+                                string existingLaiks = reader["laiks"].ToString();
+                                string existingProceduraID = reader["proceduras_ID"].ToString();
+
+                                if (existingLaiks == laiks)
+                                {
+                                    MessageBox.Show("Laiks ir aizņemts!");
+                                }
+                                else if (existingProceduraID == klientsprocedura.Text)
+                                {
+                                    MessageBox.Show("Procedūra ar šādu ID jau ir reģistrēta!");
+                                }
+
+                                return; 
+                            }
                         }
                     }
-                }
 
-                using (SQLiteCommand insertCmd = new SQLiteCommand("INSERT INTO Klients (vards, uzvards, epasts, telefona_numurs, proceduras_ID, Laiks) VALUES (@vards, @uzvards, @epasts, @telefons, @procedura, @Laiks)", sqlite_conn))
-                {
-                    insertCmd.Parameters.AddWithValue("@vards", klientavards.Text);
-                    insertCmd.Parameters.AddWithValue("@uzvards", klientauzvards.Text);
-                    insertCmd.Parameters.AddWithValue("@epasts", klientaepasts.Text);
-                    insertCmd.Parameters.AddWithValue("@telefons", klientanumurs.Text);
-                    insertCmd.Parameters.AddWithValue("@procedura", klientsprocedura.Text);
-                    insertCmd.Parameters.AddWithValue("@Laiks", laiks);
+                    using (SQLiteCommand insertCmd = new SQLiteCommand("INSERT INTO Klients (vards, uzvards, epasts, telefona_numurs, proceduras_ID, Laiks) VALUES (@vards, @uzvards, @epasts, @telefons, @procedura, @Laiks)", sqlite_conn))
+                    {
+                        insertCmd.Parameters.AddWithValue("@vards", klientavards.Text);
+                        insertCmd.Parameters.AddWithValue("@uzvards", klientauzvards.Text);
+                        insertCmd.Parameters.AddWithValue("@epasts", klientaepasts.Text);
+                        insertCmd.Parameters.AddWithValue("@telefons", klientanumurs.Text);
+                        insertCmd.Parameters.AddWithValue("@procedura", klientsprocedura.Text);
+                        insertCmd.Parameters.AddWithValue("@Laiks", laiks);
 
-                    try
-                    {
-                        insertCmd.ExecuteNonQuery();
-                        MessageBox.Show("Dati ievaditi veiksmigi.");
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error: " + ex.Message);
+                        try
+                        {
+                            insertCmd.ExecuteNonQuery();
+                            MessageBox.Show("Dati ievaditi veiksmigi.");
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error: " + ex.Message);
+                        }
                     }
                 }
             }
