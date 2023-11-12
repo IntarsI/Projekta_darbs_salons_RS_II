@@ -38,17 +38,17 @@
             // 
             // klientaid
             // 
-            this.klientaid.Location = new System.Drawing.Point(78, 77);
+            this.klientaid.Location = new System.Drawing.Point(32, 70);
             this.klientaid.Name = "klientaid";
-            this.klientaid.Size = new System.Drawing.Size(100, 20);
+            this.klientaid.Size = new System.Drawing.Size(268, 20);
             this.klientaid.TabIndex = 0;
             this.klientaid.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // pakalpojumaid
             // 
-            this.pakalpojumaid.Location = new System.Drawing.Point(78, 147);
+            this.pakalpojumaid.Location = new System.Drawing.Point(32, 183);
             this.pakalpojumaid.Name = "pakalpojumaid";
-            this.pakalpojumaid.Size = new System.Drawing.Size(100, 20);
+            this.pakalpojumaid.Size = new System.Drawing.Size(268, 20);
             this.pakalpojumaid.TabIndex = 1;
             // 
             // richTextBox1
@@ -62,38 +62,48 @@
             // 
             // Izvele_klients
             // 
-            this.Izvele_klients.Location = new System.Drawing.Point(184, 77);
+            this.Izvele_klients.BackColor = System.Drawing.Color.Teal;
+            this.Izvele_klients.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.Izvele_klients.ForeColor = System.Drawing.Color.White;
+            this.Izvele_klients.Location = new System.Drawing.Point(32, 114);
             this.Izvele_klients.Name = "Izvele_klients";
-            this.Izvele_klients.Size = new System.Drawing.Size(138, 23);
+            this.Izvele_klients.Size = new System.Drawing.Size(268, 36);
             this.Izvele_klients.TabIndex = 3;
             this.Izvele_klients.Text = "Izvēlēties klientu";
-            this.Izvele_klients.UseVisualStyleBackColor = true;
+            this.Izvele_klients.UseVisualStyleBackColor = false;
             this.Izvele_klients.Click += new System.EventHandler(this.Izvele_klients_Click);
             // 
             // pakalpojuma_izvele
             // 
-            this.pakalpojuma_izvele.Location = new System.Drawing.Point(184, 147);
+            this.pakalpojuma_izvele.BackColor = System.Drawing.Color.Teal;
+            this.pakalpojuma_izvele.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.pakalpojuma_izvele.ForeColor = System.Drawing.Color.White;
+            this.pakalpojuma_izvele.Location = new System.Drawing.Point(32, 221);
             this.pakalpojuma_izvele.Name = "pakalpojuma_izvele";
-            this.pakalpojuma_izvele.Size = new System.Drawing.Size(138, 23);
+            this.pakalpojuma_izvele.Size = new System.Drawing.Size(268, 36);
             this.pakalpojuma_izvele.TabIndex = 4;
             this.pakalpojuma_izvele.Text = "Izvēlēties pakalpojumu";
-            this.pakalpojuma_izvele.UseVisualStyleBackColor = true;
+            this.pakalpojuma_izvele.UseVisualStyleBackColor = false;
             this.pakalpojuma_izvele.Click += new System.EventHandler(this.pakalpojuma_izvele_Click);
             // 
             // Ceks
             // 
-            this.Ceks.Location = new System.Drawing.Point(102, 249);
+            this.Ceks.BackColor = System.Drawing.Color.Teal;
+            this.Ceks.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.Ceks.ForeColor = System.Drawing.Color.White;
+            this.Ceks.Location = new System.Drawing.Point(32, 329);
             this.Ceks.Name = "Ceks";
-            this.Ceks.Size = new System.Drawing.Size(114, 23);
+            this.Ceks.Size = new System.Drawing.Size(268, 109);
             this.Ceks.TabIndex = 5;
             this.Ceks.Text = "Izveidot čeku";
-            this.Ceks.UseVisualStyleBackColor = true;
+            this.Ceks.UseVisualStyleBackColor = false;
             this.Ceks.Click += new System.EventHandler(this.Ceks_Click);
             // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightCyan;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.Ceks);
             this.Controls.Add(this.pakalpojuma_izvele);
